@@ -1,4 +1,4 @@
-import { signOut, useSession } from "next-auth/react";
+
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaOpencart } from "react-icons/fa";

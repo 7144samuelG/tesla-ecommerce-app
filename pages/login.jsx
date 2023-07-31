@@ -2,14 +2,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";
-import { useSession, signOut, signIn } from "next-auth/react";
-import { useFormik } from "formik";
-import loginValidate from "@/lib/validate";
+
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import {redirect} from "next/navigation"
-import { LoginUser } from "./helpers";
-import { AxiosError } from "axios";
 import { useAuth } from "@/context/authContext";
 export default function register() {
   

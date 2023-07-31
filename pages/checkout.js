@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import CartEmpty from "./cartProps/cartEmpty";
 import { redirect, useRouter } from "next/navigation";
 import Link from "next/link";
-import { getSession } from "next-auth/react";
+
 function CheckoutPage() {
   const { state, dispatch } = useContext(Store);
   console.log(state.cart.cartItems);
@@ -274,17 +274,3 @@ function CheckoutPage() {
   );
 }
 export default dynamic(() => Promise.resolve(CheckoutPage), { ssr: false });
-// export async function getServerSideProps({ req }) {
-//   const session = await getSession({ req });
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/login",
-//         permanent: false,
-//       },
-//     };
-//   }
-//   return{
-//     props:{session}
-//   }
-// }
