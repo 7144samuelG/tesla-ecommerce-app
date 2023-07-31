@@ -2,11 +2,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import axios, { AxiosError } from "axios";
-import { signIn, useSession } from "next-auth/react";
+
 import { useForm } from "react-hook-form";
-import {redirect} from "next/navigation"
-import { LoginUser } from "./helpers";
+
 import { useAuth } from "@/context/authContext";
 export default function register() {
   // const router = useRouter();
