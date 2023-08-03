@@ -5,11 +5,17 @@ import dynamic from "next/dynamic";
 import CartEmpty from "./cartProps/cartEmpty";
 import { redirect, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useAuth } from "@/context/authContext";
 
 function CheckoutPage() {
   const { state, dispatch } = useContext(Store);
-  console.log(state.cart.cartItems);
+  //console.log(state.cart.cartItems);
+  const {user,logout}=useAuth();
+ 
   const router = useRouter();
+  if(!user){
+    router.push("/login")
+  }
   const orderPage = () => {
     router.push("/order");
   };

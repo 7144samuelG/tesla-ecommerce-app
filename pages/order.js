@@ -8,10 +8,17 @@ import useWindowSize from "react-use/lib/useWindowSize";
 import { Store } from "../store2/Store"
 import cart from "./cart";
 import CartEmpty from "./cartProps/cartEmpty";
+import { useAuth } from "@/context/authContext";
+import { useRouter } from "next/navigation";
 function Order() {
    const { width, height } = useWindowSize();
    const { state, dispatch } = useContext(Store);
    const products=state.cart.cartItems;
+   const {user,logout}=useAuth();
+   const Router=useRouter()
+   if(!user){
+      Router.push("/login")
+   }
    return (
       <>
       {state.cart.cartItems.length===0?

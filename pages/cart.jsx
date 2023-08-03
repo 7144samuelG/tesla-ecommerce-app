@@ -6,8 +6,10 @@ import CartEmpty from "./cartProps/cartEmpty";
 import dynamic from "next/dynamic";
 import {useRouter}  from "next/navigation";
 import { Store } from "../store2/Store";
+import { useAuth } from "@/context/authContext";
 function Cart() {
   const router=useRouter()
+  const {user,logout}=useAuth();
   const { state, dispatch } = useContext(Store);
   const removeCartIem = (item) => {
     dispatch({ type: "REMOVE_CART_ITEM", payload: item });
@@ -101,7 +103,7 @@ function Cart() {
                   </li>
                   <li>
                     <button
-                      onClick={() => router.push("/checkout")}
+                      onClick={() => user?router.push("/checkout"):router.push("/login")}
                       className="primary-button w-full"
                     >
                       Check Out
